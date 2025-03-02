@@ -1,126 +1,196 @@
-/* Основные стили */
+/* Общие стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #ffffff;
-    transition: background 0.3s ease, color 0.3s ease;
+    background-color: #1a1a1a;
+    color: #fff;
+    line-height: 1.6;
 }
 
 header {
-    background: #1e1e1e;
-    padding: 20px;
+    background-color: #333;
+    padding: 20px 0;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-h1 {
+header h1 {
+    font-size: 3rem;
     margin: 0;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    color: #ff5722;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 nav ul li a {
+    color: #fff;
     text-decoration: none;
-    color: #ffffff;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #00bcd4;
+    color: #ff5722;
 }
 
-/* Секции */
-section {
-    padding: 80px 20px;
+.section {
+    padding: 60px 20px;
     text-align: center;
+    opacity: 0; /* Начальная прозрачность для анимации */
+    transform: translateY(20px); /* Начальное смещение для анимации */
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-#team ul {
-    list-style: none;
-    padding: 0;
+.section.animate__animated.animate__fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-#team ul li {
-    background: #222;
-    margin: 10px auto;
-    padding: 15px;
-    width: 200px;
-    border-radius: 8px;
-    transition: transform 0.3s ease, background 0.3s ease;
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ff5722;
 }
 
-#team ul li:hover {
-    transform: scale(1.1);
-    background: #00bcd4;
+.section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* Подвал */
-footer {
-    text-align: center;
+/* Стили для команды */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     padding: 20px;
-    background: #1e1e1e;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
 
-/* Темный режим */
-.dark-mode {
-    background-color: #ffffff;
-    color: #121212;
+.team-member {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Начальная прозрачность для анимации */
+    transform: translateX(-20px); /* Начальное смещение для анимации */
 }
 
-.dark-mode header,
-.dark-mode footer {
-    background: #f0f0f0;
-    color: #121212;
+.team-member.animate__animated.animate__fadeInLeft {
+    opacity: 1;
+    transform: translateX(0);
 }
 
-.dark-mode nav ul li a {
-    color: #121212;
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 87, 34, 0.5);
 }
 
-.dark-mode #team ul li {
-    background: #ddd;
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ff5722;
+    margin-bottom: 15px;
 }
 
-.dark-mode #team ul li:hover {
-    background: #00bcd4;
+.team-member h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #ff5722;
 }
 
-/* Кнопка переключения темы */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #00bcd4;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
+.team-member p {
     font-size: 1rem;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    margin: 5px 0;
+    color: #ccc;
 }
 
-.theme-toggle:hover {
-    background: #008ba3;
+.team-member .nickname {
+    font-weight: bold;
+    color: #ff5722;
+}
+
+/* Стили для расписания */
+.schedule-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.match {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Начальная прозрачность для анимации */
+    transform: translateX(20px); /* Начальное смещение для анимации */
+}
+
+.match.animate__animated.animate__fadeInRight {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.match:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.5);
+}
+
+/* Стили для формы */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    opacity: 0; /* Начальная прозрачность для анимации */
+    transform: translateY(20px); /* Начальное смещение для анимации */
+}
+
+.contact-form.animate__animated.animate__fadeInUp {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+.contact-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff5722;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #e64a19;
+}
+
+/* Футер */
+footer {
+    background-color: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
 }
